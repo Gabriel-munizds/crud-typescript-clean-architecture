@@ -9,30 +9,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = void 0;
-class UserService {
-    constructor(userRepository) {
-        this.userRepository = userRepository;
+exports.UserController = void 0;
+class UserController {
+    constructor(userService) {
+        this.userService = userService;
     }
-    getAllUsers() {
+    getAllUsers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.userRepository.getAll();
+            const users = yield this.userService.getAllUsers();
+            res.json(users);
         });
     }
-    createUser(user) {
+    createUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.userRepository.create(user);
+            const user = req.body;
+            const createdUser = yield this.userService.createUser(user);
+            res.json(createdUser);
         });
     }
-    deleteUser(user) {
+    deleteUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.userRepository.delete(user);
+            const user = req.body;
+            const deletedUser = yield this.userService.deleteUser(user);
+            res.json(deletedUser);
         });
     }
-    updateUser(user) {
+    updateUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.userRepository.update(user);
+            const user = req.body;
+            const updateUser = yield this.userService.updateUser(user);
+            res.json(updateUser);
         });
     }
 }
-exports.UserService = UserService;
+exports.UserController = UserController;

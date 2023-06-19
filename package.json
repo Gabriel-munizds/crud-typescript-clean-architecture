@@ -1,4 +1,6 @@
 {
+  "scripts": {
+    "start": "ts-node-dev ./src/app.ts"},
   "devDependencies": {
     "@types/mysql": "^2.15.21",
     "typescript": "^5.0.4"

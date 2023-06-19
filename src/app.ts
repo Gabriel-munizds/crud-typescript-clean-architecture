@@ -1,11 +1,11 @@
 import express, { Express } from 'express';
-import { createRoutes } from './interfaces/routes';
-import { UserController } from './interfaces/user-controller';
+import { createRoutes } from './external/routes/routes';
+import { UserController } from './external/controllers/user-controller';
 import { UserService } from './application/user-service';
-import { UserRepositoryImpl } from './interfaces/user-repository-impl';
+import { UserRepositoryImpl } from './interfaces/repository/implementation/user-repository-impl';
 
 const app: Express = express();
-const userRepository = new UserRepositoryImpl(); // Implemente UserRepositoryImpl conforme seu armazenamento de dados
+const userRepository = new UserRepositoryImpl();
 const userService = new UserService(userRepository);
 const userController = new UserController(userService);
 const routes = createRoutes(userController);
