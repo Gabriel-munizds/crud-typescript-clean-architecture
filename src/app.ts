@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import { createRoutes } from './external/routes/routes';
 import { UserController } from './external/controllers/user-controller';
 import { UserService } from './application/user-service';
-import { UserRepositoryImpl } from './interfaces/repository/implementation/user-repository-impl';
+import { UserRepositoryImpl } from './external/implementation/user-repository-impl';
 
 const app: Express = express();
 const userRepository = new UserRepositoryImpl();

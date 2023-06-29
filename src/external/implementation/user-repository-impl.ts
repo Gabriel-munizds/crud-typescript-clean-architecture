@@ -1,6 +1,6 @@
 import mysql, {Connection, ResultSetHeader, RowDataPacket} from 'mysql2';
-import { User } from '../../../domain/user';
-import { UserRepository } from '../user-repository';
+import { User } from '../../domain/user';
+import { UserRepository } from '../../interfaces/repository/user-repository';
 import fs from 'fs';
 
 export class UserRepositoryImpl implements UserRepository {
