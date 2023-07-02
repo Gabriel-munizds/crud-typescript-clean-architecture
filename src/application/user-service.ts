@@ -7,7 +7,6 @@ export class UserService{
     constructor(userRepository: UserRepository){
         this.userRepository = userRepository;
     }
-
     async getAllUsers(): Promise<User[]>{
         return this.userRepository.getAll();
     }
