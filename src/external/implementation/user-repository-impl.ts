@@ -7,7 +7,7 @@ export class UserRepositoryImpl implements UserRepository {
   private connection: Connection;
 
   constructor() {
-    const dbConfig = JSON.parse(fs.readFileSync('./src/interfaces/repository/implementation/dbconfig/db.json', 'utf-8'));
+    const dbConfig = JSON.parse(fs.readFileSync('./src/external/implementation/dbconfig/db.json', 'utf-8'));
     this.connection = mysql.createConnection({
       host: dbConfig.host,
       user: dbConfig.user,
